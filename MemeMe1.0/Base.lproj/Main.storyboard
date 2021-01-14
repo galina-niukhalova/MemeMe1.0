@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nLc-Fr-go2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jzo-3b-fA6">
+                                <rect key="frame" x="0.0" y="120" width="414" height="18.5"/>
+                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="daz-Gs-Kmj">
+                                <rect key="frame" x="0.0" y="762.5" width="414" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Aoi-gT-pry">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a7m-ya-ALE"/>
+                                    <barButtonItem title="Item" image="camera" catalog="system" id="Zqn-M6-Or2" userLabel="Camera">
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="GDf-lr-aUo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="boA-lJ-fym"/>
+                                    <barButtonItem title="Album" id="64S-w9-XUj" userLabel="Album">
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="3Od-OY-HH6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fQy-K5-V23"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNN-Vb-ZR9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem id="f7D-BP-gBO">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="xLn-bj-X6M">
+                                            <connections>
+                                                <action selector="shareImage:" destination="BYZ-38-t0r" id="AJE-X2-LFY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="fz3-OK-Iz4">
+                                            <connections>
+                                                <action selector="resetMemeEditor:" destination="BYZ-38-t0r" id="03X-eg-dLm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jzo-3b-fA6" secondAttribute="trailing" id="5aa-xL-QQs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nLc-Fr-go2" secondAttribute="trailing" id="8Fn-PG-vBb"/>
+                            <constraint firstItem="daz-Gs-Kmj" firstAttribute="bottom" secondItem="Aoi-gT-pry" secondAttribute="top" constant="-32" id="9dI-IM-NpW"/>
+                            <constraint firstItem="nLc-Fr-go2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DnO-uY-y1d"/>
+                            <constraint firstItem="nLc-Fr-go2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GhR-GF-5N7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="daz-Gs-Kmj" secondAttribute="trailing" id="K7J-X3-a2p"/>
+                            <constraint firstItem="Jzo-3b-fA6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L50-JH-TBP"/>
+                            <constraint firstItem="Aoi-gT-pry" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PDL-mH-PGR"/>
+                            <constraint firstItem="nLc-Fr-go2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QOk-xv-Ge2"/>
+                            <constraint firstItem="fNN-Vb-ZR9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Y9n-0U-z5F"/>
+                            <constraint firstItem="fNN-Vb-ZR9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hwJ-eg-XZz"/>
+                            <constraint firstItem="fNN-Vb-ZR9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pAr-Gu-hvS"/>
+                            <constraint firstItem="Aoi-gT-pry" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qb9-Xw-yGB"/>
+                            <constraint firstItem="daz-Gs-Kmj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rkI-Wg-Boq"/>
+                            <constraint firstItem="Aoi-gT-pry" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="thy-HV-JZA"/>
+                            <constraint firstItem="Jzo-3b-fA6" firstAttribute="top" secondItem="fNN-Vb-ZR9" secondAttribute="bottom" constant="32" id="zcW-a5-Wq6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomTextField" destination="daz-Gs-Kmj" id="R6d-bz-EaW"/>
+                        <outlet property="cameraButton" destination="Zqn-M6-Or2" id="Ge4-7v-BCe"/>
+                        <outlet property="imagePickerView" destination="nLc-Fr-go2" id="uhU-b7-dYg"/>
+                        <outlet property="navBar" destination="fNN-Vb-ZR9" id="RAu-sp-U0C"/>
+                        <outlet property="shareImageButton" destination="xLn-bj-X6M" id="ige-fM-3DQ"/>
+                        <outlet property="toolbar" destination="Aoi-gT-pry" id="cEH-Nl-zUm"/>
+                        <outlet property="topTextField" destination="Jzo-3b-fA6" id="ZpF-DG-wZQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2084" y="-258"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
