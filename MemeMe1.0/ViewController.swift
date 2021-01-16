@@ -49,6 +49,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Subscribe to the keyboard notifications, to allow the view to raise when necessary
         subscribeToKeyboardNotifications()
+        
+        // Status bar to a dark mode
+        view.backgroundColor = .label
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -153,7 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         showBarElements(false)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, view.isOpaque, 0.0)
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -187,6 +190,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.text = topTextFieldDefaultText
         bottomTextField.text = bottomTextFieldDefaultText
         imagePickerView.image = nil
+    }
+    
+    // Status bar to a dark mode
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 
