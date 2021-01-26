@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EditorViewController.swift
 //  MemeMe1.0
 //
 //  Created by Galina Niukhalova on 9/1/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -25,13 +25,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         .strokeWidth: -3
     ]
     
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-    }
-    
     // MARK: Controller lifecycle methods
     
     override func viewDidLoad() {
@@ -47,6 +40,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Disable share image btn, if image is not selected 
         shareImageButton.isEnabled = imagePickerView.image != nil
         
+        // Hide nav and tab bars
+        hideNavigationBar(true)
+        hideTabBar(true)
+        
         // Subscribe to the keyboard notifications, to allow the view to raise when necessary
         subscribeToKeyboardNotifications()
         
@@ -58,6 +55,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillDisappear(animated)
         
         unsubscribeFromKeyboardNotifications()
+        
+        // Show nav and tab bars back
+        hideNavigationBar(false)
+        hideTabBar(false)
     }
     
     func setMemeTextAttributes(textField: UITextField, defaultText: String) {
@@ -145,9 +146,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return keyboardSize.cgRectValue.height
     }
     
+    // MARK: Configure UI
+    
     func showBarElements(_ isShown: Bool) {
         toolbar.isHidden = !isShown
         navBar.isHidden = !isShown
+    }
+    
+    func hideNavigationBar(_ isHidden: Bool) {
+        navigationController?.setNavigationBarHidden(isHidden, animated: true)
+    }
+    
+    func hideTabBar(_ isHidden: Bool) {
+        tabBarController?.tabBar.isHidden = isHidden
     }
     
     // MARK: Memed image
@@ -166,9 +177,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    func saveMeme(_ memedImage: UIImage) -> Meme {
+    // Save meme into shared array on the Application Delegate
+    func saveMeme(_ memedImage: UIImage) {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
-        return meme
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     @IBAction func shareImage(_ sender: Any) {
@@ -180,7 +192,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         controller.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed:
         Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
-                print(self.saveMeme(memedImage))
+                self.saveMeme(memedImage)
+                print("saved")
+                self.backToPreviousViewController()
             }
         }
     }
@@ -195,6 +209,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Status bar to a dark mode
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func backToPreviousViewController() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
