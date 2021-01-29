@@ -290,7 +290,7 @@
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="fz3-OK-Iz4">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="resetMemeEditor:" destination="BYZ-38-t0r" id="03X-eg-dLm"/>
+                                                <action selector="clickCancel:" destination="BYZ-38-t0r" id="XDB-uq-NH6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

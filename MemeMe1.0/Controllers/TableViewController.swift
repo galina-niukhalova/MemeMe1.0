@@ -8,12 +8,9 @@
 import Foundation
 import UIKit
 
-class TableViewController: NavigationViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: SentMemeViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    var memes: [Meme] {
-        return (UIApplication.shared.delegate as! AppDelegate).memes
-    }
     let tableCellID = "MemeTableCellIdentifier"
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +37,6 @@ class TableViewController: NavigationViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! MemeDetailsViewController
-        
-        detailsViewController.memedImage = memes[indexPath.row].memedImage
-        
-        navigationController!.pushViewController(detailsViewController, animated: true)
+        navigateToDetailsView(memeIndex: indexPath.row)
     }
 }

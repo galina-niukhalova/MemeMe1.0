@@ -11,10 +11,6 @@ class MemeDetailsViewController: UIViewController {
     var memedImage: UIImage!
     @IBOutlet var imageView: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         imageView.image = memedImage
     }

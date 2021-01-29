@@ -8,18 +8,13 @@
 import Foundation
 import UIKit
 
-class CollectionViewController: NavigationViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionViewController: SentMemeViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     
     let collectionCellID = "MemeCollectionCellIdentifier"
-    var memes: [Meme] {
-        return (UIApplication.shared.delegate as! AppDelegate).memes
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func setCollectionStyling() {
         let space: CGFloat = 3.0
         let numberOfItemsInRow: CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / numberOfItemsInRow
@@ -34,6 +29,12 @@ class CollectionViewController: NavigationViewController, UICollectionViewDelega
         flowLayout.itemSize = CGSize(width: dimension, height: height)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setCollectionStyling()
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -44,9 +45,10 @@ class CollectionViewController: NavigationViewController, UICollectionViewDelega
         }
     }
     
+    // MARK: Collection data
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
-//        return 4
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,12 +58,10 @@ class CollectionViewController: NavigationViewController, UICollectionViewDelega
         
         return cell
     }
+    
+    // MARK: Navigate to details view on collection item click
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailsViewController = self.storyboard!.instantiateViewController(withIdentifier: "DetailsViewController") as! MemeDetailsViewController
-        
-        detailsViewController.memedImage = memes[indexPath.row].memedImage
-        
-        navigationController!.pushViewController(detailsViewController, animated: true)
+        navigateToDetailsView(memeIndex: indexPath.row)
     }
 }

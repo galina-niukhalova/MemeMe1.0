@@ -46,9 +46,6 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Subscribe to the keyboard notifications, to allow the view to raise when necessary
         subscribeToKeyboardNotifications()
-        
-        // Status bar to a dark mode
-        view.backgroundColor = .label
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -193,22 +190,15 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
                 self.saveMeme(memedImage)
-                print("saved")
                 self.backToPreviousViewController()
             }
         }
     }
     
-    // Return Meme Editor to its launch state
-    @IBAction func resetMemeEditor(_ sender: Any) {
-        topTextField.text = topTextFieldDefaultText
-        bottomTextField.text = bottomTextFieldDefaultText
-        imagePickerView.image = nil
-    }
+    // MARK: Return to Sent Memes View
     
-    // Status bar to a dark mode
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    @IBAction func clickCancel(_ sender: Any) {
+        backToPreviousViewController()
     }
     
     func backToPreviousViewController() {
