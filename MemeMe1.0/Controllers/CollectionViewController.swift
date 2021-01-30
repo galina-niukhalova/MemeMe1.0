@@ -16,21 +16,21 @@ class CollectionViewController: SentMemeViewController, UICollectionViewDelegate
     
     func setCollectionStyling() {
         let space: CGFloat = 3.0
-        let numberOfItemsInRow: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / numberOfItemsInRow
-        let height = dimension * 1.5 //ratio
         
-        // make sure it works in both landscape and portrait mode
+        // set 3 items in a row for Portrait orientation and 6 items in a row of Landscape one
+        let dimension = view.frame.width < view.frame.height
+            ? (view.frame.width - (2 * space)) / 3.0
+            : (view.frame.width - (5 * space)) / 6.0
         
         // The minimum spacing to use between items in the same row.
         flowLayout.minimumInteritemSpacing = space
         // The minimum spacing to use between lines of items in the grid.
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: dimension, height: height)
+        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         setCollectionStyling()
     }
