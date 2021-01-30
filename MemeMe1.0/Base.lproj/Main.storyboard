@@ -245,14 +245,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jzo-3b-fA6">
-                                <rect key="frame" x="0.0" y="120" width="414" height="18.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jzo-3b-fA6">
+                                <rect key="frame" x="16" y="120" width="382" height="18.5"/>
                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" smartDashesType="yes"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="daz-Gs-Kmj">
-                                <rect key="frame" x="0.0" y="762.5" width="414" height="18.5"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="justified" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="daz-Gs-Kmj">
+                                <rect key="frame" x="16" y="762.5" width="382" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -300,20 +300,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jzo-3b-fA6" secondAttribute="trailing" id="5aa-xL-QQs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nLc-Fr-go2" secondAttribute="trailing" id="8Fn-PG-vBb"/>
                             <constraint firstItem="daz-Gs-Kmj" firstAttribute="bottom" secondItem="Aoi-gT-pry" secondAttribute="top" constant="-32" id="9dI-IM-NpW"/>
                             <constraint firstItem="nLc-Fr-go2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DnO-uY-y1d"/>
                             <constraint firstItem="nLc-Fr-go2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GhR-GF-5N7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="daz-Gs-Kmj" secondAttribute="trailing" id="K7J-X3-a2p"/>
-                            <constraint firstItem="Jzo-3b-fA6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L50-JH-TBP"/>
+                            <constraint firstItem="Jzo-3b-fA6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="L50-JH-TBP"/>
                             <constraint firstItem="Aoi-gT-pry" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PDL-mH-PGR"/>
                             <constraint firstItem="nLc-Fr-go2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QOk-xv-Ge2"/>
+                            <constraint firstItem="daz-Gs-Kmj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="VKs-oS-jem"/>
                             <constraint firstItem="fNN-Vb-ZR9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Y9n-0U-z5F"/>
+                            <constraint firstItem="daz-Gs-Kmj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YPV-ec-0zs"/>
                             <constraint firstItem="fNN-Vb-ZR9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hwJ-eg-XZz"/>
+                            <constraint firstItem="Jzo-3b-fA6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-16" id="kR8-UQ-bb1"/>
                             <constraint firstItem="fNN-Vb-ZR9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pAr-Gu-hvS"/>
                             <constraint firstItem="Aoi-gT-pry" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="qb9-Xw-yGB"/>
-                            <constraint firstItem="daz-Gs-Kmj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rkI-Wg-Boq"/>
                             <constraint firstItem="Aoi-gT-pry" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="thy-HV-JZA"/>
                             <constraint firstItem="Jzo-3b-fA6" firstAttribute="top" secondItem="fNN-Vb-ZR9" secondAttribute="bottom" constant="32" id="zcW-a5-Wq6"/>
                         </constraints>
