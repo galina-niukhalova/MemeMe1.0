@@ -22,6 +22,8 @@ class TableViewController: SentMemeViewController, UITableViewDataSource, UITabl
         }
     }
     
+    // MARK: Table data
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
@@ -35,6 +37,8 @@ class TableViewController: SentMemeViewController, UITableViewDataSource, UITabl
         
         return cell
     }
+    
+    // MARK: Navigate to details view on a table's item click
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigateToDetailsView(memeIndex: indexPath.row)

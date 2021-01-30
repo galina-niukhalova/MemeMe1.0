@@ -59,7 +59,7 @@ class CollectionViewController: SentMemeViewController, UICollectionViewDelegate
         return cell
     }
     
-    // MARK: Navigate to details view on collection item click
+    // MARK: Navigate to details view on a collection's item click
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         navigateToDetailsView(memeIndex: indexPath.row)
