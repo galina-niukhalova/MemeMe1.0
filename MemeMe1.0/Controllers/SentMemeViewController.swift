@@ -15,7 +15,7 @@ class SentMemeViewController: UIViewController {
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
-
+    
     override func viewDidLoad() {
         navigationItem.title = navigationTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addMeme))

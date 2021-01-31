@@ -64,7 +64,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         textField.defaultTextAttributes = memeTextCSSAttributes
         textField.textAlignment = .center
     }
-
+    
     // MARK: Display gallery or camera popup
     
     @IBAction func pickImageFromAlbum(_ sender: Any) {
@@ -168,7 +168,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-
+        
         showBarElements(true)
         
         return memedImage
@@ -187,7 +187,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(controller, animated: true)
         
         controller.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed:
-        Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                                                    Bool, arrayReturnedItems: [Any]?, error: Error?) in
             if completed {
                 self.saveMeme(memedImage)
                 self.backToPreviousViewController()

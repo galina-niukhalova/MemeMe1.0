@@ -50,17 +50,17 @@ class CollectionViewController: SentMemeViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellID, for: indexPath) as! MemeCollectionViewCell
-    
+        
         cell.memeImage.image = memes[indexPath.row].memedImage
         
         return cell
     }
     
     // MARK: Navigate to details view on a collection's item click
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         navigateToDetailsView(memeIndex: indexPath.row)
     }
