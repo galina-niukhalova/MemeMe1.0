@@ -12,12 +12,17 @@ class TableViewController: SentMemeViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     let tableCellID = "MemeTableCellIdentifier"
+    let noDataText = """
+Please click + icon
+to add your first meme
+"""
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         // Rerender table view if memes data has changed
-        if memes.count > tableView.numberOfRows(inSection: 0) {
+        let numberOfRows = tableView.numberOfSections > 0 ? tableView.numberOfRows(inSection: 0) : 0
+        if memes.count > 0 && memes.count > numberOfRows {
             tableView.reloadData()
         }
     }
@@ -42,5 +47,23 @@ class TableViewController: SentMemeViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigateToDetailsView(memeIndex: indexPath.row)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        var numOfSection: Int = 0
+        
+        if memes.count > 0 {
+            numOfSection = 1
+            tableView.backgroundView = nil
+        } else {
+            // Display an empty placeholder when there is no meme
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.numberOfLines = 2
+            noDataLabel.text = noDataText
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView = noDataLabel
+        }
+        
+        return numOfSection
     }
 }
