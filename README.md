@@ -8,6 +8,7 @@ A mobile app that allows users
  * Share a new image, containing original image and text, in a social media
 
 ## Meme 2.0:
-- Display memes in table or collection view with shared data acrose tabs
+- Display an empty table placeholder when there is no data yet
+- Display memes in table or collection view with shared data across the tabs
 - Additional screen to preview a meme, by clicking on table / collection item
 - Navigation between all 4 screens - collection / table, details and editor views
